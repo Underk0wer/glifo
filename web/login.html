@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Entra en Glifo o crea tu cuenta. El editor de tipografías también funciona sin registro." />
+    <title>Iniciar sesión — Glifo</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/boot.js"></script>
+  </head>
+  <body>
+    <main class="auth">
+      <section class="auth-side">
+        <div class="auth-top">
+          <a class="brand" href="./" aria-label="Glifo, inicio">
+            <span class="brand-mark" aria-hidden="true">g</span>
+            <span class="brand-name">Glifo</span>
+          </a>
+          <div class="nav-actions">
+            <a class="auth-back" href="./">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" /></svg>
+              Volver al inicio
+            </a>
+            <button class="icon-btn theme-toggle" type="button" aria-label="Cambiar entre tema claro y oscuro">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <mask id="luna">
+                  <rect width="24" height="24" fill="#fff" />
+                  <circle class="theme-bite" cx="17" cy="8" r="6.5" fill="#000" />
+                </mask>
+                <circle class="theme-core" cx="12" cy="12" r="5" fill="currentColor" mask="url(#luna)" />
+                <g class="theme-rays" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                  <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="auth-main">
+          <div class="auth-card">
+            <h1 class="auth-title">Hola <em>de nuevo.</em></h1>
+            <p class="auth-sub">Entra para tener tus proyectos en cualquier equipo.</p>
+            <p class="auth-plan" hidden></p>
+
+            <div class="seg auth-tabs" role="group" aria-label="Qué quieres hacer">
+              <span class="seg-pill" aria-hidden="true"></span>
+              <button type="button" data-mode="login" aria-pressed="true">Iniciar sesión</button>
+              <button type="button" data-mode="signup" aria-pressed="false">Crear cuenta</button>
+            </div>
+
+            <form class="auth-form" novalidate>
+              <div class="field field-name is-collapsed">
+                <div class="field-box">
+                  <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder=" " aria-describedby="nombre-error" tabindex="-1" />
+                  <label for="nombre">Nombre</label>
+                  <span class="field-error" id="nombre-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field-box">
+                  <input id="correo" name="correo" type="email" autocomplete="email" inputmode="email" placeholder=" " aria-describedby="correo-error" />
+                  <label for="correo">Correo electrónico</label>
+                  <span class="field-error" id="correo-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field-box">
+                  <input id="clave" name="clave" type="password" autocomplete="current-password" placeholder=" " aria-describedby="clave-error" />
+                  <label for="clave">Contraseña</label>
+                  <button class="icon-btn field-eye" type="button" aria-label="Mostrar la contraseña" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+                      <circle cx="12" cy="12" r="2.8" />
+                      <path class="eye-slash" d="M4 4l16 16" />
+                    </svg>
+                  </button>
+                  <span class="field-error" id="clave-error" role="alert"></span>
+                </div>
+              </div>
+              <div class="auth-row">
+                <button class="auth-link" type="button" data-forgot>¿Olvidaste tu contraseña?</button>
+              </div>
+              <button class="btn btn-primary btn-lg auth-submit" type="submit">
+                <span>Iniciar sesión</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                <i class="spinner" aria-hidden="true"></i>
+              </button>
+            </form>
+
+            <div class="auth-notice" role="status" hidden>
+              <span class="auth-notice-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7.5v5l3 2" /></svg>
+              </span>
+              <h2></h2>
+              <p></p>
+              <a class="btn btn-primary" data-app href="#">
+                <span>Abrir el editor</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+              <button class="auth-link" type="button" data-back>Volver al formulario</button>
+            </div>
+
+            <div class="auth-alt">
+              <p class="auth-or">o</p>
+              <a class="btn btn-outline btn-lg auth-guest" data-app href="#">Seguir sin cuenta</a>
+              <p class="auth-note">El editor funciona sin registro: tus proyectos se guardan en este navegador.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="auth-foot">Tus diseños son tuyos: no se publican ni se usan para entrenar modelos de inteligencia artificial.</p>
+      </section>
+
+      <aside class="auth-art" aria-hidden="true">
+        <svg viewBox="-520 -860 1040 1240" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="auth-quote">
+          <p>Cada letra, <em>a tu manera.</em></p>
+          <span>Glifo · editor de tipografías en el navegador</span>
+        </div>
+      </aside>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/glyphs.js"></script>
+    <script src="js/morph.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
